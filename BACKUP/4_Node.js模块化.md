@@ -64,7 +64,7 @@
 
   注意：就算被引模块和当前js文件是同一目录下，也需要使用`./`相对路径，不能省略。
 
-#### 自定义模块案例
+### 自定义模块案例
 
 - 新建test.js和testArg.js文件
 
@@ -87,21 +87,23 @@
   ```
 
 - 运行test.js，成功在test.js里面调用testArg模块：
-
-  ![image](https://user-images.githubusercontent.com/22440467/155465427-3e5060f0-7507-44b5-9dcb-46869ab10e4e.png)
+<div align=center>
+    <img src="https://user-images.githubusercontent.com/22440467/155465427-3e5060f0-7507-44b5-9dcb-46869ab10e4e.png">
+</div>
 
 ### Node.js模块工作原理
 
 ​	前面提到模块就是一个js文件，实际上模块中的代码都是包装在一个函数中执行。在JS中var变量作用域是函数内，let，const都是块级作用域。在模块中用到的变量都相当于函数内部的变量，外界无法访问。只对于想暴露的变量采用exports主动导出。这个特性更加便于维护工作环境，防止变量相互间污染。
 
 在自定义模块案例中，testArg.js文件添加如下代码，打印封装函数实参的伪数组对象arguments：
-
-![image](https://user-images.githubusercontent.com/22440467/155467045-251847ef-fa70-4ce8-a8f0-712287eb62c2.png)
+<div align=center>
+    <img src="https://user-images.githubusercontent.com/22440467/155467045-251847ef-fa70-4ce8-a8f0-712287eb62c2.png">
+</div>
 
 可以看到如下信息：
-
-![image](https://user-images.githubusercontent.com/22440467/155467182-ae823964-a298-4445-8d7f-c3ea24d348ce.png)
-
+<div align=center>
+    <img src="https://user-images.githubusercontent.com/22440467/155467182-ae823964-a298-4445-8d7f-c3ea24d348ce.png">
+</div>
 这说明testArg模块确实是封装在函数内执行，并且还有五个参数：
 
 - exports
