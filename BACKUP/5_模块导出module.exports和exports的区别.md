@@ -15,7 +15,7 @@
 
 1. module.exports暴露变量
 
-```
+```node
 module.exports = {
 Name: ‘zzy’,
 Age: 22,
@@ -25,10 +25,10 @@ Say: function(name, age) {}
 
 2. exports暴露变量
 
-```
+```node
 exports.name = ’zzy‘;
 exports.age = 22;
-exports.say = function(name, age){};
+exports.Say = function(name, age){};
 ```
 
 而如果对exports也采用`exports = {}`，则在引入模块后，调用`Name`等属性会发现是`undefined`
@@ -41,7 +41,7 @@ exports.say = function(name, age){};
 
    ​	JS中基本数据类型：`Null,Undefined,Boolean,Number,String,Symbol`都是原始值，保存原始值是按值保存。即，在栈中开辟出空间，用来存放**变量名**以及其**对应的变量值**。
 
-   ```
+   ```node
    var a = 10；
    var b = a;
    a++;
@@ -55,7 +55,7 @@ exports.say = function(name, age){};
 
    引用值是指`Object`对象类型，该类型在存储的时候是在栈中存储**变量名**以及对应的**堆地址空间**
 
-   ```
+   ```node
    var module= new Object();
    module.exports = {}; //0x1234
    var exports = module.exports; //0x1234
@@ -65,7 +65,7 @@ exports.say = function(name, age){};
 
    <div align = center><img src="https://user-images.githubusercontent.com/22440467/155477097-85bc8ad0-ef10-4383-b7e8-b85628484513.png" width=600></div>
 
-   ```
+   ```node
    var module= new Object();
    module.exports = {}; //0x1234
    var exports = module.exports; //0x1234
