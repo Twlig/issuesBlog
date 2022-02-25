@@ -10,7 +10,7 @@
 
 ​	Express 的中间件，本质上就是一个function处理函数，Express中间件的格式如下:
 
-```
+```node
 function(req, res, next){
 	next()
 }
@@ -22,7 +22,7 @@ function(req, res, next){
 
 - **一个全局中间件**
 
-```
+```node
 const express = require("express")
 const app = express()
 const mw = (req, res, next) => {
@@ -48,7 +48,7 @@ app.listen(80,() =>{
 
 - **多个全局中间件**
 
-```
+```node
 app.use(mw1)  //全局注册mw1中间件
 app.use(mw2)  //全局注册mw2中间件
 app.get('/user/:id',(req, res) => { //这个请求会依次触发前两个中间件，然后在执行get里的回调函数
@@ -59,7 +59,7 @@ app.get('/user/:id',(req, res) => { //这个请求会依次触发前两个中间
 
 - **局部中间件**
 
-```
+```node
 // mw1中间件只在当前路由生效
 app.get('/user/:id',mw1, (req, res) => { 
     console.log("user/id")
@@ -69,7 +69,7 @@ app.get('/user/:id',mw1, (req, res) => {
 
 - **多个局部中间件**
 
-```
+```node
 //两种写法都行
 app.get('/user/:id',mw1,mw2, (req, res) => {})
 app.get('/user/:id',[mw1,mw2], (req, res) => {})
@@ -81,7 +81,7 @@ app.get('/user/:id',[mw1,mw2], (req, res) => {})
 
    通过`app.use()`或 `app.get0`或 `app.post()`，**绑定到`app`实例**上的中间件，叫做应用级别的中间件，代码示例如下:
 
-   ```
+   ```node
    app.use(mw1)
    app.get('/',mw1,(req,res)=>{})
    ```
@@ -90,7 +90,7 @@ app.get('/user/:id',[mw1,mw2], (req, res) => {})
 
    绑定到 **`express.Router()`实例**上的中间件，叫做路由级别的中间件。它的用法和应用级别中间件没有任何区别。只不过，应用级别中间件是绑定到 `app`实例上，路由级别中间件绑定到router实例上，代码示例如下:
 
-   ```
+   ```node
    var router = express.Router()
    router.use(mw1)
    ```
@@ -100,7 +100,7 @@ app.get('/user/:id',[mw1,mw2], (req, res) => {})
    **作用**：用来**捕获异常错误**，从而防止项目异常崩溃的问题
    **格式**：错误级别中间件的 function处理函数中，必须有4个形参，形参顺序从前到后，分别是`(err, req, res, next)`
 
-   ```
+   ```node
    app.get('/', (req,res) =>{
    	throw new Error('服务器内部错误')
    })
@@ -126,7 +126,7 @@ app.get('/user/:id',[mw1,mw2], (req, res) => {})
 
 - `postMw.js`
 
-```
+```node
 const querystring = require('querystring')
 module.exports = function (req, res, next) {
 	var str = ""
@@ -143,7 +143,7 @@ module.exports = function (req, res, next) {
 
 - `main.js`
 
-```
+```node
 const express = require('express')
 const postmw = require('./postMw.js')
 var app = express()
