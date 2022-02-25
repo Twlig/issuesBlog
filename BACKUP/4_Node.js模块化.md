@@ -34,9 +34,9 @@
 
   引用模块之后会返回引用的模块信息，自定义标识以供后续使用。如：
 
-  `var fs = require("fs")`
-
-  `var data = fs.readFileSync('input.txt')`
+  ```node
+     var fs = require("fs")
+     var data = fs.readFileSync('input.txt')```
 
 #### Node.js模块分类
 
@@ -70,7 +70,8 @@
 
 - 模块文件testArg.js写入如下内容：
 
-  ``` var age = 20
+  ```node
+  var age = 20
   var name = "zzy"
   module.exports.age = age
   module.exports.name = name
@@ -81,7 +82,7 @@
 
 - test.js文件内容：
 
-  ```
+  ```node
   const md = require("./testArg.js")   //引入testArg模块，声明为md标识
   md.sayMsg(md.name,md.age)	//使用md标识调用模块内容
   ```
