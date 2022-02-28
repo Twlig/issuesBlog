@@ -140,7 +140,7 @@ const person = {};
 person.name = 'Matt'; // ok
 ```
 
-- for-of 循环
+- for-in 循环
 
   ```javascript
   for (const key in {a: 1, b: 2}) { 
@@ -149,7 +149,7 @@ person.name = 'Matt'; // ok
   // a, b
   ```
 
-- for-in 循环
+- for-of 循环
 
   ```javascript
   for (const value of [1,2,3,4,5]) { 
@@ -203,7 +203,7 @@ ECMAScript 变量可以包含两种不同类型的数据：原始值和引用值
 
 - **传递参数**
 
-  ECMAScript 中所有函数的参数都是**按值传递**的。值会被复制到一个局部变量（即一个命名参数，是 arguments 对象中的一个槽位）
+  ECMAScript 中所有函数的参数（无论是原始值还是引用值）都是**按值传递**的。值会被复制到一个局部变量（即一个命名参数，是 arguments 对象中的一个槽位）
 
   - **传递原始值**
 
@@ -221,7 +221,7 @@ ECMAScript 变量可以包含两种不同类型的数据：原始值和引用值
   实际上在执行`addTen(count)`时，相当于
 
   ```javascript
-  num = count //把count值赋值给num，后续两个变量相互独立，num在函数结束时被销毁
+  var num = count //把count值赋值给num，后续两个变量相互独立，num在函数结束时被销毁
   ```
 
   - **传递引用值**
@@ -253,11 +253,13 @@ ECMAScript 变量可以包含两种不同类型的数据：原始值和引用值
   在`setName(person)`执行时，它也相当于：
 
   ``` javascript
-  obj = person	//obj复制了person的引用值，后续函数执行结束，obj销毁，person不受影响
+  var obj = person	//obj复制了person的引用值，后续函数执行结束，obj销毁，person不受影响
   ```
-
   <div argin=center><img src="https://user-images.githubusercontent.com/22440467/155715323-3435bfa0-4fd0-4f88-86cb-7779beb8ee08.png"></div>
-
+``` javascript
+   obj = new Object(); //如图所示，obj指向了新的堆空间
+   obj.name = "Greg";	
+```
   <div argin=center><img src="https://user-images.githubusercontent.com/22440467/155715354-4e98bfca-7019-4cfc-91ff-10ce045bdaaa.png"></div>
 
 ### 执行上下文与作用域
