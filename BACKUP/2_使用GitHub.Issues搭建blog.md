@@ -36,6 +36,7 @@
     - Value 就填入刚刚的 Token 值.
 - ### 使用Issues发布博客
   点击仓库顶部的 Issues 选项卡，接着点击右侧的 New issue. 文档使用markdown语法编辑就行.
+  每次更新issues，git actions会执行.github\workflows下的脚本文件，自动更新readme.md
   至此大功告成！
 
 
