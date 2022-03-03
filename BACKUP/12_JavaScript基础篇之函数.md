@@ -258,6 +258,10 @@
 
      它在标准函数和箭头函数中有不同的行为。在标准函数中，this 引用的是**把函数当成方法调用的上下文对象**，这时候通常称其为 this 值（在网页的全局上下文中调用函数时，this 指向 windows）。
 
+     - 任何函数本质上都是通过某个对象来调用的，如果**没有指定对象，就是window**
+     - 所有函数内部都有一个变量this
+     - 它的值是调用函数的当前对象
+
      1.**标准函数this指向：**
 
      - **windows对象**
@@ -311,7 +315,7 @@
 
      &#x1F308;箭头函数妙用：
 
-     ​	在**事件回调**或定时回调中调用某个函数时，**this 值指向的并非想要的对象**。此时将回调函数写成箭头函数就可以解决问题。这是因为箭头函数中的 this 会保留**定义该函数时的上下文**：
+     在**事件回调**或定时回调中调用某个函数时，**this 值指向的并非想要的对象**。此时将回调函数写成箭头函数就可以解决问题。这是因为箭头函数中的 this 会保留**定义该函数时的上下文**：
 
      ```javascript
      function King() { 
@@ -328,7 +332,7 @@
      new Queen(); // undefined
      ```
 
-     此处箭头函数this指向定义时的上下文，~~也就保留着作用域链~~也就是King函数内部的属性和方法。前面作用域链删除是因为这个说法验证有问题，如果this指向定义时的上下文，那么这个King的上下文中的作用域链应该是保存了外部属性的，但其实this却访问不了，如下：
+     此处箭头函数this指向定义时的上下文，~~也就保留着作用域链~~也就是**King函数内部的属性和方法**。前面作用域链删除是因为这个说法验证有问题，如果this指向定义时的上下文，那么这个King的上下文中的作用域链应该是保存了外部属性的，但其实this却访问不了，如下：
 
      ```javascript
      var age = 22;
@@ -336,8 +340,27 @@
       this.royaltyName = 'Henry'; 
       // this 引用 King 的实例
       setTimeout(() => console.log(this.age), 1000); 
+      setTimeout(() => console.log(this), 1000); 
      }
      new King();  //undefined
+     // King{}
+     ```
+
+     可以看出this对象是King。所以能访问的内容也只有King对象实例的属性和方法。如果把`this.royaltyName = 'Henry'`改成`var royaltyName = 'Henry'`，`setTimeout`函数的this是访问不到`royaltyName `变量，因为这不是King的实例属性。同样如果调用King的时候**不采用new关键字，this也是指向window对象**。
+
+     也就是说箭头函数this指向定义时的上下文就只是保留了箭头函数**外部函数对象**的属性和方法。如下，只能访问到F1内部。
+
+     ``` javascript
+     var age = 22;
+     function King() { 
+         this.royaltyName = 'Henry'; 
+         function F1() {
+         // this 引用 F1 的实例
+          setTimeout(() => console.log(this), 1000); 
+         }
+         new F1();  //一定要用new，不然this指向的就是window对象
+     }
+     new King(); //F1{}
      ```
 
      但是如果不采用this.age其实可以访问到，函数内部沿着作用域链可以找到age：
@@ -352,49 +375,34 @@
      new King();  //undefined
      ```
 
-     也就是说箭头函数this指向定义时的上下文就只是保留了箭头函数**外部一级函数**作用域内的属性和方法。如下，只能访问到F1内部。
-
-     ``` javascript
-     var age = 22;
-     function King() { 
-         this.royaltyName = 'Henry'; 
-         function F1() {
-         // this 引用 King 的实例
-          setTimeout(() => console.log(this.royaltyName), 1000); 
-         }
-         F1();
-     }
-     new King(); //undefined
-     ```
-
    3. **caller**
 
-        这个属性引用的是调用当前函数的函数，或者如果是在**全局作用域中调用**的则为 null。
+      这个属性引用的是调用当前函数的函数，或者如果是在**全局作用域中调用**的则为 null。
 
-        ``` javascript
-        function outer() { 
-         inner(); 
-        } 
-        function inner() { 
-         console.log(arguments.callee.caller); 
-        } 
-        outer(); // outer
-        ```
+   ``` javascript
+   function outer() { 
+    inner(); 
+   } 
+   function inner() { 
+    console.log(arguments.callee.caller); 
+   } 
+   outer(); // outer
+   ```
 
    4. **new.target**
 
-        ECMAScript 6 新增了检测函数是否使用 new 关键字调用的 new.target 属性。如果函数是正常调用的，则 new.target 的值是 undefined；如果是使用 new 关键字调用的，则 new.target 将引用被调用的构造函数。
+   ECMAScript 6 新增了检测函数是否使用 new 关键字调用的 new.target 属性。如果函数是正常调用的，则 new.target 的值是 undefined；如果是使用 new 关键字调用的，则 new.target 将引用被调用的构造函数。
 
-        ```javascript
-        function King() { 
-         if (!new.target) { 
-         throw 'King must be instantiated using "new"' 
-         } 
-         console.log('King instantiated using "new"'); 
-        } 
-        new King(); // King instantiated using "new" 
-        King(); // Error: King must be instantiated using "new"
-        ```
+   ```javascript
+   function King() { 
+    if (!new.target) { 
+    throw 'King must be instantiated using "new"' 
+    } 
+    console.log('King instantiated using "new"'); 
+   } 
+   new King(); // King instantiated using "new" 
+   King(); // Error: King must be instantiated using "new"
+   ```
 
 8. **闭包**
 
@@ -407,6 +415,10 @@
    - 这个作用域链一直向外串起了所有包含函数的活动对象，直到全局执行上下文才终止。
 
    全局上下文中的叫**变量对象**，它会在代码执行期间始终存在。而函数局部上下文中的叫**活动对象**，只在函数执行期间存在。
+
+   函数内部的代码在访问变量时，会从作用域链中查找变量。函数执行完毕后，**局部活动对象会被销毁**，内存中就只剩下全局作用域。不过，闭包就不一样了。
+
+   在一个**函数内部定义的函数**会把其**包含函数的活动对象**添加到**自己的作用域链**中。因此，在`createComparisonFunction()`函数中，匿名函数的作用域链中实际上包含 `createComparisonFunction()`的活动对象。
 
    如下代码：
 
@@ -429,4 +441,60 @@
    ```
 
    ![image](https://user-images.githubusercontent.com/22440467/156366385-d7abdeae-9d7b-445a-b3f2-5d62ec9c3e1f.png)
+
+   不过上面的图存在一个问题，`createComparisonFunction`函数作用域中是访问不到`result`因为`result`在函数调用之后才声明。
+
+9. **存疑：**
+
+在前面的this时，this引用的是**定义箭头函数的上下文**
+
+``` javascript
+let o = { 
+ sayColor: () => console.log(this)
+}; 
+o.sayColor(); // window
+```
+
+然而
+
+```javascript
+function King() { 
+    this.sayColor = () => {console.log(this)}
+}
+new King().sayColor(); // King
+```
+
+按理来说King这里应该也是指向window呀。但是后面反思了一下，这个箭头函数定义是在函数King内部。可能**函数会产生新的上下文**也就是King函数内部上下文，而对于对象来说则不会产生新的上下文，**对象的方法属性还是在全局上下文定义**的。
+
+```javascript
+let object = { 
+ getIdentityFunc() { 
+     console.log(this);  //object
+     return function() { 
+     	return this; 
+     }; 
+ } 
+}; 
+console.log(object.getIdentityFunc()()); // window
+```
+
+由于函数`getIdentityFunc`是object调用的，但是内部的return的函数不是，所以对象就是window。object调用函数`getIdentityFunc`，因此它内部的this指向object。要想在内部return的函数使用这个this也很简单，利用闭包的特性，
+
+- 在外部函数中保存this变量，但是为了this变量冲突，使用that名称保存。
+- 再在内部函数中调用外部`getIdentityFunc`函数的that变量。
+- 内部函数在运行的时候外部函数的that变量就不会销毁，还保留着，以供内部function使用
+
+```javascript
+let object = { 
+ getIdentityFunc() { 
+     let that = this;
+     return function() { 
+     	 return that
+     }; 
+ } 
+}; 
+console.log(object.getIdentityFunc()()); // window
+```
+
+
 
