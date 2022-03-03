@@ -495,6 +495,12 @@ let object = {
 }; 
 console.log(object.getIdentityFunc()()); // window
 ```
+**总之：**
 
+- 任何函数本质上都是通过某个对象来调用的，如果没有指定对象，就是window。
+- 所有函数内部都有一个变量this
+- 箭头函数this指向定义时的上下文对象，标准函数指向调用该函数的对象
+- 只有函数是其函数实例对象上的实例方法，该函数的this才指向构造函数（在函数内部如King函数this.sayColor内部的this指向King），其他如this.sayColor内部调用的闭包函数并不是直接定义在King上的方法，则是由window对象调用。
+- 实际场景中可能存在标准函数和箭头函数嵌套的结构，需要逐层考虑。
 
 
