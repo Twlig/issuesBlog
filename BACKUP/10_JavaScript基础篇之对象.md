@@ -1,3 +1,230 @@
 # [JavaScript基础篇之对象](https://github.com/Twlig/issuesBlog/issues/10)
 
 ### 对象
+
+对象就是一组属性的无序集合。创建自定义对象的通常方式是创建 Object 的一个新实例，然后再给它添加属性和方法。
+
+#### **定义对象方法**
+
+1. `.`方法
+
+   ```javascript
+   let person = new Object(); 
+   person.name = "Nicholas"; 
+   person.age = 29; 
+   person.job = "Software Engineer"; 
+   person.sayName = function() { 
+    console.log(this.name); 
+   };
+   ```
+
+2. 对象字面量
+
+   ```javascript
+   let person = { 
+    name: "Nicholas", 
+    age: 29, 
+    job: "Software Engineer", 
+    sayName() { 
+    console.log(this.name); 
+    } 
+   };
+   ```
+
+#### 对象属性类型
+
+属性分两种：数据属性和访问器属性。
+
+1. **数据属性**
+
+   数据属性包含一个保存数据值的位置。值会从这个位置读取，也会写入到这个位置。数据属性有 4个特性描述它们的行为。为了将某个特性标识为内部特性，规范会用两个中括号把特性的名称括起来，比如[[Enumerable]]。
+
+   -  [[Configurable]]：表示属性是否可以通过 delete 删除并重新定义，是否可以修改它的特性，以及是否可以把它改为访问器属性。默认情况下，所有直接定义在对象上的属性的这个特性都是 true。
+   -  [[Enumerable]]：表示属性是否可以通过 for-in 循环返回。默认情况下，所有直接定义在对象上的属性的这个特性都是 true。
+   -  [[Writable]]：表示属性的值是否可以被修改。默认情况下，所有直接定义在对象上的属性的这个特性都是 true。
+   -  [[Value]]：包含属性实际的值。这就是前面提到的那个读取和写入属性值的位置。这个特性的默认值为 undefined。
+
+   要修改属性的默认特性，就必须使用 `Object.defineProperty()`方法。这个方法接收 3 个参数：要给其添加属性的对象、属性的名称和一个描述符对象。
+
+   ```javascript
+   let person = {}; 
+   Object.defineProperty(person, "name", { 
+    writable: false, 
+    value: "Nicholas" 
+   }); 
+   console.log(person.name); // "Nicholas" 
+   person.name = "Greg"; 
+   console.log(person.name); // "Nicholas"
+   ```
+
+   把 configurable 设置为 false，意味着这个属性不能从对象上删除。**一个属性被定义为不可配置之后，就**
+   **不能再变回可配置的**。再次调用 `Object.defineProperty()`并修改任何非 writable 属性会导致错误：
+
+   ```javascript
+   let person = {}; 
+   Object.defineProperty(person, "name", { 
+    configurable: false, 
+    value: "Nicholas" 
+   }); 
+   // 抛出错误
+   Object.defineProperty(person, "name", { 
+    configurable: true, 
+    value: "Nicholas" 
+   });
+   ```
+
+   &#x1F341;**注意**：
+
+   - 通过字面量创建对象属性时，configurable、enumerable 和 writable 的值都默认为 true
+   - 通过调用 `Object.defineProperty()`创建属性时，configurable、enumerable 和 writable 的值都默认为 false
+
+2. **访问器属性**
+
+   访问器属性不包含数据值。相反，它们包含一个获取（getter）函数和一个设置（setter）函数，不过这两个函数不是必需的。访问器属性有 4 个特性描述它们的行为。
+
+   -  [[Configurable]]：表示属性是否可以通过 delete 删除并重新定义，是否可以修改它的特性，以及是否可以把它改为数据属性。默认情况下，所有直接定义在对象上的属性的这个特性都是 true。  
+   - [[Enumerable]]：表示属性是否可以通过 for-in 循环返回。默认情况下，所有直接定义在对象上的属性的这个特性都是 true。 
+   - [[Get]]：获取函数，在读取属性时调用。默认值为 undefined。 
+   - [[Set]]：设置函数，在写入属性时调用。默认值为 undefined。
+
+   **访问器属性是不能直接定义的，必须使用 `Object.defineProperty()`**
+
+   ```javascript
+   let book = { 
+    year_: 2017, 
+    edition: 1
+   }; 
+   Object.defineProperty(book, "year", { 
+    get() { 
+    	return this.year_; 
+    }, 
+    set(newValue) { 
+        if (newValue > 2017) { 
+        	this.year_ = newValue; 
+        } 
+   }); 
+   book.year = 2018; 
+   console.log(book.edition); // 2
+   ```
+
+#### **定义属性**
+
+1. **定义单个属性**
+
+   如前面 使用`Object.defineProperty()`。
+
+2. **定义多个属性**
+
+   在一个对象上同时定义多个属性的可能性是非常大的 `Object.defineProperties()`方法定义多个属性。
+
+   ```javascript
+   let book = {}; 
+   Object.defineProperties(book, { 
+    year_: { 
+    	value: 2017 
+    }, 
+    edition: { 
+    	value: 1 
+    }, 
+    year: { 
+        get() { 
+        return this.year_; 
+        },
+        set(newValue) { 
+            if (newValue > 2017) { 
+                this.year_ = newValue; 
+                this.edition += newValue - 2017; 
+            } 
+    	} 
+    } 
+   });
+   ```
+
+#### 读取属性
+
+1.  `Object.getOwnPropertyDescriptor()`方法
+
+   可以取得**指定属性**的属性描述符。这个方法接收两个参数：属性所在的对象和要取得其描述符的属性名。
+
+```javascript
+let descriptor = Object.getOwnPropertyDescriptor(book, "year_"); 
+console.log(descriptor.value); // 2017 
+console.log(descriptor.configurable); // false 
+console.log(typeof descriptor.get); // "undefined" 
+let descriptor = Object.getOwnPropertyDescriptor(book, "year"); 
+console.log(descriptor.value); // undefined 
+console.log(descriptor.enumerable); // false 
+console.log(typeof descriptor.get); // "function"
+```
+
+2. `Object.getOwnPropertyDescriptors()`静态方法
+
+   可以取得**指定对象**的所有属性描述符。这个方法接收两个参数：属性所在的对象。
+
+``` javascript
+console.log(Object.getOwnPropertyDescriptors(book)); 
+// { 
+// edition: { 
+// configurable: false, 
+// enumerable: false, 
+// value: 1, 
+// writable: false 
+// }, 
+// year: { 
+// configurable: false, 
+// enumerable: false, 
+// get: f(), 
+// set: f(newValue), 
+// }, 
+// year_: { 
+// configurable: false, 
+// enumerable: false, 
+// value: 2017, 
+// writable: false 
+// } 
+// }
+```
+
+#### 合并对象
+
+把源对象所有的本地属性一起复制到目标对象上。合并对象 `Object.assign()`方法。
+
+这个方法**接收一个目标对象和一个或多个源对象作为参数**，然后将每个**源对象中可枚举**（`Object.propertyIsEnumerable()`返回 true）和自有（`Object.hasOwnProperty()`返回 true）属性复制到目标对象。以字符串和符号为键的属性会被复制。对每个符合条件的属性，这个方法会使用源对象上的[[Get]]取得属性的值，然后使用目标对象上的[[Set]]设置属性的值。
+
+```javascript
+let dest, src, result; 
+/** 
+ * 简单复制
+ */ 
+dest = {}; 
+src = { id: 'src' }; 
+result = Object.assign(dest, src); 
+// Object.assign 修改目标对象
+// 也会返回修改后的目标对象
+console.log(dest === result); // true 
+console.log(dest !== src); // true 
+console.log(result); // { id: src } 
+console.log(dest); // { id: src }
+/** 
+ * 多个源对象
+ */ 
+dest = {}; 
+result = Object.assign(dest, { a: 'foo' }, { b: 'bar' }); 
+console.log(result); // { a: foo, b: bar }
+```
+
+`Object.assign()`实际上对每个源对象执行的是**浅复制**。**如果多个源对象都有相同的属性，则使用最后一个复制的值**。此外，从源对象访问器属性取得的值，比如获取函数，会作为一个静态值赋给目标对象。换句话说，**不能在两个对象间转移获取函数和设置函数**。
+
+```javascript
+dest = {}; 
+var a =  { id: {d: 'd', i: 'i'}, a: 'foo' };
+result = Object.assign(dest, a, { b: 'bar' }); 
+console.log(result); // {a: "foo", b: "bar", id: {d: 'd', i: 'i'}}
+dest.id.d = 'd1';
+console.log(a)  //{d: 'd1', i: 'i'}  浅复制
+```
+
+
+
+
+
