@@ -4,10 +4,10 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 | Name | Link | Desc | 
  | ---- | ---- | ---- |
 ## 最近更新
-- [JavaScript基础篇之JSON](https://github.com/Twlig/issuesBlog/issues/21)--2022-03-07
-- [JavaScript基础篇之事件处理与事件委托](https://github.com/Twlig/issuesBlog/issues/20)--2022-03-07
-- [JavaScript基础篇之冒泡与捕获](https://github.com/Twlig/issuesBlog/issues/19)--2022-03-06
-- [JavaScript基础篇之BOM](https://github.com/Twlig/issuesBlog/issues/18)--2022-03-06
+- [JSON](https://github.com/Twlig/issuesBlog/issues/21)--2022-03-07
+- [事件处理与事件委托](https://github.com/Twlig/issuesBlog/issues/20)--2022-03-07
+- [冒泡与捕获](https://github.com/Twlig/issuesBlog/issues/19)--2022-03-06
+- [BOM](https://github.com/Twlig/issuesBlog/issues/18)--2022-03-06
 - [setTimeout和setInterval](https://github.com/Twlig/issuesBlog/issues/17)--2022-03-06
 ## CORS
 - [跨域访问](https://github.com/Twlig/issuesBlog/issues/8)--2022-02-24
@@ -20,10 +20,10 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 - [Github Actions](https://github.com/Twlig/issuesBlog/issues/13)--2022-03-02
 - [使用GitHub Issues搭建blog](https://github.com/Twlig/issuesBlog/issues/2)--2021-11-13
 ## JavaScript基础篇
-- [JavaScript基础篇之JSON](https://github.com/Twlig/issuesBlog/issues/21)--2022-03-07
-- [JavaScript基础篇之事件处理与事件委托](https://github.com/Twlig/issuesBlog/issues/20)--2022-03-07
-- [JavaScript基础篇之冒泡与捕获](https://github.com/Twlig/issuesBlog/issues/19)--2022-03-06
-- [JavaScript基础篇之BOM](https://github.com/Twlig/issuesBlog/issues/18)--2022-03-06
+- [JSON](https://github.com/Twlig/issuesBlog/issues/21)--2022-03-07
+- [事件处理与事件委托](https://github.com/Twlig/issuesBlog/issues/20)--2022-03-07
+- [冒泡与捕获](https://github.com/Twlig/issuesBlog/issues/19)--2022-03-06
+- [BOM](https://github.com/Twlig/issuesBlog/issues/18)--2022-03-06
 - [setTimeout和setInterval](https://github.com/Twlig/issuesBlog/issues/17)--2022-03-06
 <details><summary>显示更多</summary>
 
