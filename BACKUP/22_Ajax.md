@@ -148,4 +148,14 @@
    xhr.send(null)
    ```
 
-   
+   参考：[MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest)
+
+---
+
+**XMLHttpRequest.withCredentials与 CORS 什么关系**
+在发同域请求时，浏览器会将cookie自动加在request header中。但在发送跨域请求时，cookie并没有自动加在request header中。
+造成这个问题的原因是：在CORS标准中做了规定，默认情况下，浏览器在发送跨域请求时，不能发送任何认证信息（credentials）如"cookies"和"HTTP authentication schemes"。除非withCredentials为true（xhr对象有一个属性叫withCredentials，默认值为false）。
+所以根本原因是cookies也是一种认证信息，在跨域请求中，client端必须手动设置withCredentials=true，且server端也必须允许request能携带认证信息（即response header中包含Access-Control-Allow-Credentials:true），这样浏览器才会自动将cookie加在request header中。
+
+另外，要特别注意一点，一旦跨域request能够携带认证信息，server端一定不能将Access-Control-Allow-Origin设置为*，而必须设置为请求页面的域名。
+参考：[cookies](https://segmentfault.com/a/1190000004322487#articleHeader13)
