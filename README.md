@@ -4,11 +4,11 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 | Name | Link | Desc | 
  | ---- | ---- | ---- |
 ## 最近更新
+- [cookie、session与token](https://github.com/Twlig/issuesBlog/issues/23)--2022-03-08
 - [Ajax](https://github.com/Twlig/issuesBlog/issues/22)--2022-03-08
 - [JSON](https://github.com/Twlig/issuesBlog/issues/21)--2022-03-07
 - [事件处理与事件委托](https://github.com/Twlig/issuesBlog/issues/20)--2022-03-07
 - [冒泡与捕获](https://github.com/Twlig/issuesBlog/issues/19)--2022-03-06
-- [BOM](https://github.com/Twlig/issuesBlog/issues/18)--2022-03-06
 ## CSS
 - [响应式布局](https://github.com/Twlig/issuesBlog/issues/16)--2022-03-04
 ## Express
@@ -17,6 +17,9 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 ## Git
 - [Github Actions](https://github.com/Twlig/issuesBlog/issues/13)--2022-03-02
 - [使用GitHub Issues搭建blog](https://github.com/Twlig/issuesBlog/issues/2)--2021-11-13
+## HTTP
+- [cookie、session与token](https://github.com/Twlig/issuesBlog/issues/23)--2022-03-08
+- [Ajax](https://github.com/Twlig/issuesBlog/issues/22)--2022-03-08
 ## JavaScript基础篇
 - [Ajax](https://github.com/Twlig/issuesBlog/issues/22)--2022-03-08
 - [JSON](https://github.com/Twlig/issuesBlog/issues/21)--2022-03-07
