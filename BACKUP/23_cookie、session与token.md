@@ -69,4 +69,34 @@ header声明使用的加密签名算法，payload是特定的数据，signature�
 ---
 
 ### Cookie有效期
+可以笼统地将cookie划分为**会话cookie**和**持久cookie**。会话cookie在用户退出浏览器时被删除，持久cookie被存储在硬盘，计算机重启后依然存在。
+会话cookie和持久cookie的唯一区别在于它们的过期时间。如果设置了Discard参数，或者没有Expires或Max-age参数来说明扩展的过期时间，这个cookie就是一个会话cookie。
 Cookie在生成时就会被指定一个Expire值，这就是Cookie的生存周期，在这个周期内Cookie有效，超出周期Cookie就会被清除。有些页面将Cookie的生存周期设置为“0”或负值，这样在关闭浏览器时，就马上清除Cookie，不会记录用户信息，更加安全。
+
+---
+
+### Cookie属性
+name----Cookie的名称，一旦建立不可修改
+value----Cookie的值，如果值为unicode字符，则需要为字符编码。如果是二进制数据，需要使用BASE64编码
+maxAge----Cookie失效的时间，单位秒。如果为整数，则该Cookie在maxAge秒后失效。如果为负数，该Cookie为临时Cookie，关闭浏览器即失效，浏览器也不会以任何形式保存该Cookie。如果为0，表示删除该Cookie。默认为-1。
+secure----该Cookie是否仅被使用安全协议传输。安全协议。安全协议有HTTPS，SSL等，在网络上传输数据之前先将数据加密。默认为false。
+path----Cookie的使用路径。如果设置为“/sessionWeb/”，则只有contextPath为“/sessionWeb”的程序可以访问该Cookie。如果设置为“/”，则本域名下contextPath都可以访问该Cookie。注意最后一个字符必须为“/”。
+domain----可以访问该Cookie的域名。如果设置为“.google.com”，则所有以“google.com”结尾的域名都可以访问该Cookie。注意第一个字符必须为“.”。
+comment----该Cookie的用处说明，浏览器显示Cookie信息的时候显示该说明。
+version----Cookie使用的版本号。0表示遵循Netscape的Cookie规范，1表示遵循W3C的RFC 2109规范
+
+### Cookie例子
+```java
+Set-cookie: user="xx";  domain="airtravelbargains.com"
+Set-cookie: pref=compact; domain="airtravelbargains.com"; path = /autos/ 
+//分配一个路径autos，可以生成一个特殊汽车租赁cookie
+```
+
+如果用户访问的是www.airtravelbargains.com，special.airtravelbargains.com，或者www.airtravelbargains.com/specilas.html，则只发回`user="xxx"`的cookie；
+
+如果用户访问www.airtravelbargains.com/autos/index.html，则发回两个cookie。
+
+```
+Cookie: user="xxx"
+Cookie: pref=compact
+```
