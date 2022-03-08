@@ -104,3 +104,48 @@
 3. application/json
 
    请求体数据采用json格式
+
+---
+
+**XMLHttpRequest.response和XMLHttpRequest.responseText区别**
+
+1. **XMLHttpRequest.response 属性**
+
+   返回响应的正文。返回的类型为 ArrayBuffer 、 Blob 、 Document 、JavaScript Object 或 DOMString 中的一个。 这取决于 responseType 属性。
+
+2. **XMLHttpRequest.responseText**
+
+   返回类型为DOMString的纯文本的值。
+
+**XMLHttpRequest.overrideMimeType()与XMLHttpRequest.responseType**
+
+1. **XMLHttpRequest.responseType**
+
+   responseType 决定了写入**response**的响应数据被解析成什么类型的数据。在这里XHR直接封装好了内部解析响应，省去手动解析响应主体的步骤。**要在调用 open() 初始化请求之后调用，并且要在调用 send() 发送请求到服务器之前调用**。
+
+   ```javascript
+   let xhr = new XMLHttpRequest();
+   xhr.onreadystatechange = function() {  //一定要在open方法前
+        if (xhr.readyState == 4) { 
+            if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) { 
+                alert(xhr.response); //json格式
+            }
+        } 
+   }; 
+   xhr.open("get", "example.txt", true); //get请求，true异步
+   xhr.responseType = "json";
+   xhr.send(null)
+   ```
+
+2. **XMLHttpRequest.overrideMimeType()**
+
+   overrideMimeType 方法是指定一个MIME类型用于**替代服务器指定的类型**（相当于重写响应类型），使服务端响应信息中传输的数据按照该指定MIME类型处理。例如强制使流方式处理为"text/xml"类型处理时会被使用到，即使服务器在响应头中并没有这样指定。**此方法必须在send方法之前调用方为有效。**
+
+   ```javascript
+   let xhr = new XMLHttpRequest();
+   xhr.overrideMimeType("text/plain");
+   xhr.open("get", "example.txt", true); //get请求，true异步
+   xhr.send(null)
+   ```
+
+   
