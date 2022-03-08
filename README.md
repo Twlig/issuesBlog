@@ -11,9 +11,6 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 - [事件处理与事件委托](https://github.com/Twlig/issuesBlog/issues/20)--2022-03-07
 ## CSS
 - [响应式布局](https://github.com/Twlig/issuesBlog/issues/16)--2022-03-04
-## Express
-- [Express中间件](https://github.com/Twlig/issuesBlog/issues/7)--2022-02-24
-- [模块化路由](https://github.com/Twlig/issuesBlog/issues/6)--2022-02-24
 ## Git
 - [Github Actions](https://github.com/Twlig/issuesBlog/issues/13)--2022-03-02
 - [使用GitHub Issues搭建blog](https://github.com/Twlig/issuesBlog/issues/2)--2021-11-13

@@ -100,3 +100,32 @@ Set-cookie: pref=compact; domain="airtravelbargains.com"; path = /autos/
 Cookie: user="xxx"
 Cookie: pref=compact
 ```
+
+---
+
+### session生命周期问题
+
+Session的生命周期是从打开一个浏览器窗口发送请求到关闭浏览器窗口，这种说法是不正确的！
+当用户第一次访问Web应用中支持Session的某个网页时，就会开始一个新的Session，那么接下来当用户浏览这个Web应用的不同网页时，始终处于一个Session中。
+
+#### 结束session生命周期
+
+结束Session生命周期有两种方法：
+
+- Session.invalidate()方法，不过这个方法在实际的开发中，并不推荐，可能在强制注销用户的时候会使用
+- 当前用户和服务器的交互时间超过默认时间后，Session会失效。
+
+当把浏览器关闭时，浏览器并没有向服务器发送任何请求来关闭Session，自然Session也不会被销毁，但是可以做一点努力，在所有的客户端页面里使用js的window.onclose来监视浏览器的关闭动作，然后向服务器发送一个请求来关闭Session，但是这种做法在实际的开发中也是不推荐使用的，最正常的办法就是不去管它，让它等到默认的时间后，自动销毁。
+
+#### 会话cookie
+
+那么为什么当我们关闭浏览器后，就再也访问不到之前的session了呢？
+其实之前的**Session一直都在服务器端**，session定义的Cookie是会话Cookie，当我们关闭浏览器，cookie就没有了。
+
+当重新打开浏览器窗口时，之前的Cookie中存放的Sessionid已经不存在了，此时服务器从tpServletRequest对象中没有检查到sessionid，服务器会再发送一个新的存有Sessionid的Cookie到客户端的浏览器中，此时对应的是一个新的会话，而服务器上原先的session等到它的默认时间到之后，便会自动销毁。
+
+#### session使用范围
+
+- 当在同一个浏览器中同时打开多个标签，发送同一个请求或不同的请求，仍是同一个session;
+- 当不在同一个窗口中打开相同的浏览器时，发送请求，仍是同一个session;
+- 当使用不同的浏览器时，发送请求，即使发送相同的请求，是不同的session;（因为该浏览器没有对应的session ID，所以需要重新申请）
