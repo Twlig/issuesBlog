@@ -22,7 +22,7 @@
 
 - **设置请求头**
 
-  使用 setRequestHeader()方法。这个方法接收两个参数：头部字段的名称和值。
+  使用 setRequestHeader()方法。这个方法接收两个参数：头部字段的名称和值。**setRequestHeader必须在open()方法之后，send()方法之前调用，否则会抛错**
 
   ```javascript
   xhr.setRequestHeader("content-Type","application/json");  //请求体是json格式数据
@@ -75,7 +75,7 @@
        } 
   }; 
   xhr.open("post", "example.txt", true); //get请求，true异步
-  xhr.setRequestHeader("content-Type","application/json");  //发送json格式数据
+  xhr.setRequestHeader("Content-Type","application/json");  //发送json格式数据
   var personMsg = {username: "zzy",age: 22}
   xhr.send(JSON.stringify(personMsg))
   ```
@@ -83,3 +83,24 @@
   
 
   
+
+---
+
+**Content-Type请求头常见值**：
+
+1. x-www-form-urlencoded
+
+   - 是表单提交的一种，以x-www-form-urlencoded方式提交数据，会将表单内的数据转换为键值对
+
+   - 查询参数的形式，如get请求url中?号后面的查询参数
+
+     ```
+     https://books.com?bookClass=10&year=2020
+     ```
+
+2. multipart/form-data。
+   也是一种表单提交，以multipart/form-data方式提交数据，是使用包含文件上传控件的表单。
+
+3. application/json
+
+   请求体数据采用json格式
