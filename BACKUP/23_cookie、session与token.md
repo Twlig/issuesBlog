@@ -65,3 +65,8 @@ header声明使用的加密签名算法，payload是特定的数据，signature�
 
 - [[cookies](https://blog.csdn.net/playboyanta123/article/details/79464684?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_utm_term~default-1.pc_relevant_default&spm=1001.2101.3001.4242.2&utm_relevant_index=4)](https://blog.csdn.net/playboyanta123/article/details/79464684?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_utm_term~default-1.pc_relevant_default&spm=1001.2101.3001.4242.2&utm_relevant_index=4)
 - [[讲的贼好的哔哩哔哩视频](https://www.bilibili.com/video/BV1ob4y1Y7Ep?spm_id_from=333.999.0.0)](https://www.bilibili.com/video/BV1ob4y1Y7Ep?spm_id_from=333.999.0.0)
+
+---
+
+### Cookie有效期
+Cookie在生成时就会被指定一个Expire值，这就是Cookie的生存周期，在这个周期内Cookie有效，超出周期Cookie就会被清除。有些页面将Cookie的生存周期设置为“0”或负值，这样在关闭浏览器时，就马上清除Cookie，不会记录用户信息，更加安全。
