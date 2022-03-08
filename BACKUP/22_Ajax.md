@@ -17,7 +17,7 @@
   open()方法，这个方法接收 3 个参数：请求类型（"get"、"post"等）、请求 URL，以及表示请求是否异步的布尔值。
 
   ```javascript
-  xhr.open("post", "example.txt", true); //get请求，true异步
+  xhr.open("post", "example.txt", true); //post请求，true异步
   ```
 
 - **设置请求头**
@@ -74,7 +74,7 @@
            }
        } 
   }; 
-  xhr.open("post", "example.txt", true); //get请求，true异步
+  xhr.open("post", "example.txt", true); //post请求，true异步
   xhr.setRequestHeader("Content-Type","application/json");  //发送json格式数据
   var personMsg = {username: "zzy",age: 22}
   xhr.send(JSON.stringify(personMsg))
