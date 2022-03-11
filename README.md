@@ -4,11 +4,11 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 | Name | Link | Desc | 
  | ---- | ---- | ---- |
 ## 最近更新
+- [动态class和style](https://github.com/Twlig/issuesBlog/issues/33)--2022-03-11
 - [计算属性](https://github.com/Twlig/issuesBlog/issues/32)--2022-03-11
 - [Vue修饰符](https://github.com/Twlig/issuesBlog/issues/31)--2022-03-11
 - [Vue基础指令](https://github.com/Twlig/issuesBlog/issues/30)--2022-03-11
 - [export和export default区别](https://github.com/Twlig/issuesBlog/issues/29)--2022-03-10
-- [call、apply和bind](https://github.com/Twlig/issuesBlog/issues/28)--2022-03-09
 ## CSS
 - [响应式布局](https://github.com/Twlig/issuesBlog/issues/16)--2022-03-04
 ## Git
@@ -48,5 +48,7 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 - [模块导出module.exports和exports的区别](https://github.com/Twlig/issuesBlog/issues/5)--2022-02-24
 - [Node.js模块化](https://github.com/Twlig/issuesBlog/issues/4)--2022-02-24
 ## Vue
+- [动态class和style](https://github.com/Twlig/issuesBlog/issues/33)--2022-03-11
 - [计算属性](https://github.com/Twlig/issuesBlog/issues/32)--2022-03-11
+- [Vue修饰符](https://github.com/Twlig/issuesBlog/issues/31)--2022-03-11
 - [Vue基础指令](https://github.com/Twlig/issuesBlog/issues/30)--2022-03-11
