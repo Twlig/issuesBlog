@@ -4,11 +4,11 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 | Name | Link | Desc | 
  | ---- | ---- | ---- |
 ## 最近更新
+- [Vue基础指令](https://github.com/Twlig/issuesBlog/issues/30)--2022-03-11
 - [export和export default区别](https://github.com/Twlig/issuesBlog/issues/29)--2022-03-10
 - [call、apply和bind](https://github.com/Twlig/issuesBlog/issues/28)--2022-03-09
 - [继承](https://github.com/Twlig/issuesBlog/issues/27)--2022-03-09
 - [映射与弱映射、集合与弱集合](https://github.com/Twlig/issuesBlog/issues/26)--2022-03-09
-- [Array及常用方法](https://github.com/Twlig/issuesBlog/issues/25)--2022-03-08
 ## CSS
 - [响应式布局](https://github.com/Twlig/issuesBlog/issues/16)--2022-03-04
 ## Git
@@ -47,3 +47,5 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 - [模块化路由](https://github.com/Twlig/issuesBlog/issues/6)--2022-02-24
 - [模块导出module.exports和exports的区别](https://github.com/Twlig/issuesBlog/issues/5)--2022-02-24
 - [Node.js模块化](https://github.com/Twlig/issuesBlog/issues/4)--2022-02-24
+## Vue
+- [Vue基础指令](https://github.com/Twlig/issuesBlog/issues/30)--2022-03-11
