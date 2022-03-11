@@ -337,3 +337,67 @@ o.sayColor(); // 'red'
 相比之下，`v-show` 就简单得多——不管初始条件是什么，元素总是会被渲染，并且只是简单地基于 CSS 进行切换。
 
 一般来说，`v-if` 有更高的切换开销，而 `v-show` 有更高的初始渲染开销。因此，如果需要非常频繁地切换，则使用 `v-show` 较好；如果在运行时条件很少改变，则使用 `v-if` 较好。
+
+---
+
+## `v-for` 与 `v-if` 一同使用
+
+**不**推荐在同一元素上使用 `v-if` 和 `v-for`。
+
+当它们处于同一节点，`v-for` 的优先级比 `v-if` 更高，这意味着 `v-if` 将分别重复运行于每个 `v-for` 循环中。当只想为**部分**项渲染节点时，这种优先级的机制会十分有用，如下：
+
+```html
+<li v-for="todo in todos" v-if="!todo.isComplete">
+  {{ todo }}
+</li>
+```
+
+但是v-for和v-if叠加其实不高效，需要全部渲染然后再判断。完全可以用计算属性替代，**先过滤再渲染**更加高效。
+
+### 计算属性过滤
+
+当Vue.js处理指令时，`v-for`比`v-if`的优先级更高，所以即使只渲染出列表中的一小部分元素，也得在每次重新渲染的时候遍历整个列表，而不考虑过滤元素是否发生变化。
+
+通过将列表更换为在一个计算属性上遍历并过滤掉不需要渲染的元素，会获得以下好处：
+
+- 过滤后的列表只有在数组发生变化时才会重新运算，过滤更高效。
+- 对于`v-for="user in activeUsers"`，在渲染时只遍历活跃用户，渲染更高效。
+- 解耦渲染层的逻辑，可维护性更强。
+
+```html
+<ol>
+    <li
+        v-for="user in users"
+        v-if="user.isActive"
+        :key="user.id"
+    >
+        {{user.name}}
+    </li>
+</ol>
+```
+
+可以更换为：
+
+```javascript
+computed:{
+    activeUsers: function(){
+        return this.users.filter(function(user){
+            return user.isActive
+        })
+    }
+}
+```
+
+模板更换为：
+
+```html
+<ol>
+    <li
+        v-for="user in activeUsers"
+        :key="user.id"
+    >
+        {{user.name}}
+    </li>
+</ol>
+```
+
