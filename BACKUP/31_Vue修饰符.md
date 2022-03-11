@@ -89,3 +89,21 @@
 <input v-model.trim="msg">
 ```
 
+
+
+---
+
+### v-on:click.prevent.self 和 v-on:click.self.prevent的区别
+
+- #### v-on:click.prevent.self
+
+  - prevent在前面时，无论点击当前修饰节点还是该节点的子类节点，都会阻止默认事件。
+
+  - 只有自身节点被点击才能触发事件处理程序。
+
+- #### v-on:click.self.prevent
+
+  - prevent在后边时，可以理解为“自己阻止” 。  点击被prevent修饰的节点时，会阻止默认链接，但点击该节点的子类节点冒泡上来的话就不会阻止了
+  - 只有自身节点被点击才能触发事件处理程序。
+
+因此，他们的区别就是在于prevent的范围，前者范围更大限制自身及子类节点默认事件，后者限制自身默认事件。
