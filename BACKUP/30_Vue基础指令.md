@@ -322,43 +322,18 @@ let o = {
 o.sayColor(); // 'red'
 ```
 
-可以看到虽然sayColor是定义在对象o上面的，且通过o调用，但是最终this指向的还是window。这和此处的Vue实例类似，虽然created箭头函数是创建在Vue实例上的，但是this指向的不是Vue实例。因此，最好不要使用箭头函数以免this指向不明确。
+可以看到虽然sayColor是定义在对象o上面的，且通过o调用，但是最终this指向的还是window这个上下文。这和此处的Vue实例类似，虽然created箭头函数是创建在Vue实例上的，但是this指向的不是Vue实例。因此，最好不要使用箭头函数以免this指向不明确。
 
 
 
 ---
 
-### 生命周期钩子函数不能使用箭头函数
+## `v-if` vs `v-show`
 
-生命周期钩子的 `this` 上下文指向调用它的 Vue 实例。
+`v-if` 是“真正”的条件渲染，因为它会确保在切换过程中条件块内的事件监听器和子组件适当地被**销毁和重建**。
 
-比如：
+`v-if` 也是**惰性的**：如果在初始渲染时条件为假，则什么也不做——直到条件第一次变为真时，才会开始渲染条件块。
 
-```javascript
-new Vue({
-  data: {
-    a: 1
-  },
-  created: function () {
-    // `this` 指向 vm 实例
-    console.log('a is: ' + this.a)
-  }
-})
-// => "a is: 1"
-```
+相比之下，`v-show` 就简单得多——不管初始条件是什么，元素总是会被渲染，并且只是简单地基于 CSS 进行切换。
 
-不能在选项 property 或回调上使用箭头函数，比如 `created: () => console.log(this.a)` 或 `vm.$watch('a', newValue => this.myMethod())`。因为**箭头函数的this是指向定义时的上下文对象**，而不是调用函数的对象。而我们想要的this往往是当前实例vm，并通过this去访问vm实例上的属性和方法。
-
-举个例子：
-
-```javascript
-window.color = 'red'; 
-let o = { 
- 	color: 'blue' ,
-    sayColor: () => console.log(this.color)
-}; 
-o.sayColor(); // 'red'
-```
-
-可以看到虽然sayColor是定义在对象o上面的，且通过o调用，但是最终this指向的还是window。这和此处的Vue实例类似，虽然created箭头函数是创建在Vue实例上的，但是this指向的不是Vue实例。因此，最好不要使用箭头函数以免this指向不明确。
-
+一般来说，`v-if` 有更高的切换开销，而 `v-show` 有更高的初始渲染开销。因此，如果需要非常频繁地切换，则使用 `v-show` 较好；如果在运行时条件很少改变，则使用 `v-if` 较好。
