@@ -287,3 +287,78 @@ var vm = new Vue({
      ```
 
      
+
+---
+
+### 生命周期钩子函数不能使用箭头函数
+
+生命周期钩子的 `this` 上下文指向调用它的 Vue 实例。
+
+比如：
+
+```javascript
+new Vue({
+  data: {
+    a: 1
+  },
+  created: function () {
+    // `this` 指向 vm 实例
+    console.log('a is: ' + this.a)
+  }
+})
+// => "a is: 1"
+```
+
+不能在选项 property 或回调上使用箭头函数，比如 `created: () => console.log(this.a)` 或 `vm.$watch('a', newValue => this.myMethod())`。因为**箭头函数的this是指向定义时的上下文对象**，而不是调用函数的对象。而我们想要的this往往是当前实例vm，并通过this去访问vm实例上的属性和方法。
+
+举个例子：
+
+```javascript
+window.color = 'red'; 
+let o = { 
+ 	color: 'blue' ,
+    sayColor: () => console.log(this.color)
+}; 
+o.sayColor(); // 'red'
+```
+
+可以看到虽然sayColor是定义在对象o上面的，且通过o调用，但是最终this指向的还是window。这和此处的Vue实例类似，虽然created箭头函数是创建在Vue实例上的，但是this指向的不是Vue实例。因此，最好不要使用箭头函数以免this指向不明确。
+
+
+
+---
+
+### 生命周期钩子函数不能使用箭头函数
+
+生命周期钩子的 `this` 上下文指向调用它的 Vue 实例。
+
+比如：
+
+```javascript
+new Vue({
+  data: {
+    a: 1
+  },
+  created: function () {
+    // `this` 指向 vm 实例
+    console.log('a is: ' + this.a)
+  }
+})
+// => "a is: 1"
+```
+
+不能在选项 property 或回调上使用箭头函数，比如 `created: () => console.log(this.a)` 或 `vm.$watch('a', newValue => this.myMethod())`。因为**箭头函数的this是指向定义时的上下文对象**，而不是调用函数的对象。而我们想要的this往往是当前实例vm，并通过this去访问vm实例上的属性和方法。
+
+举个例子：
+
+```javascript
+window.color = 'red'; 
+let o = { 
+ 	color: 'blue' ,
+    sayColor: () => console.log(this.color)
+}; 
+o.sayColor(); // 'red'
+```
+
+可以看到虽然sayColor是定义在对象o上面的，且通过o调用，但是最终this指向的还是window。这和此处的Vue实例类似，虽然created箭头函数是创建在Vue实例上的，但是this指向的不是Vue实例。因此，最好不要使用箭头函数以免this指向不明确。
+
