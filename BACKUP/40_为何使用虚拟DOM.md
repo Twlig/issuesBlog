@@ -27,5 +27,6 @@
 
 
 #### 总结： 
+- **使用JavaScript运行成本来替换DOM操作成本，JavaScript运算速度比DOM快很多，显著提高性能**
 - **虚拟DOM可以实现只更新状态变化的DOM节点**
 - **相比于watcher开销更小**
