@@ -4,11 +4,11 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 | Name | Link | Desc | 
  | ---- | ---- | ---- |
 ## 最近更新
+- [变化侦测原理](https://github.com/Twlig/issuesBlog/issues/39)--2022-03-16
 - [实现sleep函数](https://github.com/Twlig/issuesBlog/issues/38)--2022-03-16
 - [防抖和节流](https://github.com/Twlig/issuesBlog/issues/37)--2022-03-15
 - [扁平化数组](https://github.com/Twlig/issuesBlog/issues/36)--2022-03-15
 - [Vue大小写总结](https://github.com/Twlig/issuesBlog/issues/35)--2022-03-12
-- [组件](https://github.com/Twlig/issuesBlog/issues/34)--2022-03-12
 ## CSS
 - [响应式布局](https://github.com/Twlig/issuesBlog/issues/16)--2022-03-04
 ## Git
@@ -48,13 +48,14 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 - [模块导出module.exports和exports的区别](https://github.com/Twlig/issuesBlog/issues/5)--2022-02-24
 - [Node.js模块化](https://github.com/Twlig/issuesBlog/issues/4)--2022-02-24
 ## Vue
+- [变化侦测原理](https://github.com/Twlig/issuesBlog/issues/39)--2022-03-16
 - [Vue大小写总结](https://github.com/Twlig/issuesBlog/issues/35)--2022-03-12
 - [组件](https://github.com/Twlig/issuesBlog/issues/34)--2022-03-12
 - [动态class和style](https://github.com/Twlig/issuesBlog/issues/33)--2022-03-11
 - [计算属性](https://github.com/Twlig/issuesBlog/issues/32)--2022-03-11
-- [Vue修饰符](https://github.com/Twlig/issuesBlog/issues/31)--2022-03-11
 <details><summary>显示更多</summary>
 
+- [Vue修饰符](https://github.com/Twlig/issuesBlog/issues/31)--2022-03-11
 - [Vue基础指令](https://github.com/Twlig/issuesBlog/issues/30)--2022-03-11
 </details>
 
