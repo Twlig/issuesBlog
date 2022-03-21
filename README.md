@@ -4,11 +4,11 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 | Name | Link | Desc | 
  | ---- | ---- | ---- |
 ## 最近更新
+- [git基本操作及冲突解决](https://github.com/Twlig/issuesBlog/issues/67)--2022-03-21
 - [Grid布局](https://github.com/Twlig/issuesBlog/issues/66)--2022-03-21
 - [MVC和MVVM的区别](https://github.com/Twlig/issuesBlog/issues/65)--2022-03-21
 - [为什么要使用webpack?](https://github.com/Twlig/issuesBlog/issues/64)--2022-03-21
 - [vue-cli项目结构](https://github.com/Twlig/issuesBlog/issues/63)--2022-03-21
-- [vue-cli中assets和static的区别](https://github.com/Twlig/issuesBlog/issues/62)--2022-03-21
 ## CSS
 - [Grid布局](https://github.com/Twlig/issuesBlog/issues/66)--2022-03-21
 - [浏览器渲染机制](https://github.com/Twlig/issuesBlog/issues/60)--2022-03-21
@@ -26,6 +26,7 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 </details>
 
 ## Git
+- [git基本操作及冲突解决](https://github.com/Twlig/issuesBlog/issues/67)--2022-03-21
 - [Github Actions](https://github.com/Twlig/issuesBlog/issues/13)--2022-03-02
 - [使用GitHub Issues搭建blog](https://github.com/Twlig/issuesBlog/issues/2)--2021-11-13
 ## HTTP
