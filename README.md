@@ -4,19 +4,20 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 | Name | Link | Desc | 
  | ---- | ---- | ---- |
 ## 最近更新
+- [浏览器渲染机制](https://github.com/Twlig/issuesBlog/issues/60)--2022-03-21
 - [回流和重绘](https://github.com/Twlig/issuesBlog/issues/59)--2022-03-21
 - [选择器优先级](https://github.com/Twlig/issuesBlog/issues/58)--2022-03-20
 - [选择器类型](https://github.com/Twlig/issuesBlog/issues/57)--2022-03-20
 - [position定位](https://github.com/Twlig/issuesBlog/issues/56)--2022-03-20
-- [flex布局](https://github.com/Twlig/issuesBlog/issues/55)--2022-03-20
 ## CSS
+- [浏览器渲染机制](https://github.com/Twlig/issuesBlog/issues/60)--2022-03-21
 - [回流和重绘](https://github.com/Twlig/issuesBlog/issues/59)--2022-03-21
 - [选择器优先级](https://github.com/Twlig/issuesBlog/issues/58)--2022-03-20
 - [选择器类型](https://github.com/Twlig/issuesBlog/issues/57)--2022-03-20
 - [position定位](https://github.com/Twlig/issuesBlog/issues/56)--2022-03-20
-- [flex布局](https://github.com/Twlig/issuesBlog/issues/55)--2022-03-20
 <details><summary>显示更多</summary>
 
+- [flex布局](https://github.com/Twlig/issuesBlog/issues/55)--2022-03-20
 - [行内元素和块级元素](https://github.com/Twlig/issuesBlog/issues/54)--2022-03-20
 - [清除浮动](https://github.com/Twlig/issuesBlog/issues/53)--2022-03-20
 - [BFC及其应用](https://github.com/Twlig/issuesBlog/issues/52)--2022-03-18
