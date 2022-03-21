@@ -4,11 +4,11 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 | Name | Link | Desc | 
  | ---- | ---- | ---- |
 ## 最近更新
+- [vue-cli中assets和static的区别](https://github.com/Twlig/issuesBlog/issues/62)--2022-03-21
 - [package和package-lock区别](https://github.com/Twlig/issuesBlog/issues/61)--2022-03-21
 - [浏览器渲染机制](https://github.com/Twlig/issuesBlog/issues/60)--2022-03-21
 - [回流和重绘](https://github.com/Twlig/issuesBlog/issues/59)--2022-03-21
 - [选择器优先级](https://github.com/Twlig/issuesBlog/issues/58)--2022-03-20
-- [选择器类型](https://github.com/Twlig/issuesBlog/issues/57)--2022-03-20
 ## CSS
 - [浏览器渲染机制](https://github.com/Twlig/issuesBlog/issues/60)--2022-03-21
 - [回流和重绘](https://github.com/Twlig/issuesBlog/issues/59)--2022-03-21
@@ -86,6 +86,7 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 </details>
 
 ## webpack
+- [vue-cli中assets和static的区别](https://github.com/Twlig/issuesBlog/issues/62)--2022-03-21
 - [package和package-lock区别](https://github.com/Twlig/issuesBlog/issues/61)--2022-03-21
 ## 手撕代码
 - [实现sleep函数](https://github.com/Twlig/issuesBlog/issues/38)--2022-03-16
