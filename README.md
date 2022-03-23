@@ -4,11 +4,11 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 | Name | Link | Desc | 
  | ---- | ---- | ---- |
 ## 最近更新
+- [实现LazyMan](https://github.com/Twlig/issuesBlog/issues/71)--2022-03-23
 - [使用Nginx部署vue项目](https://github.com/Twlig/issuesBlog/issues/70)--2022-03-22
 - [开发模式和生产模式](https://github.com/Twlig/issuesBlog/issues/69)--2022-03-22
 - [npm run dev启动过程](https://github.com/Twlig/issuesBlog/issues/68)--2022-03-22
 - [git基本操作及冲突解决](https://github.com/Twlig/issuesBlog/issues/67)--2022-03-21
-- [Grid布局](https://github.com/Twlig/issuesBlog/issues/66)--2022-03-21
 ## CSS
 - [Grid布局](https://github.com/Twlig/issuesBlog/issues/66)--2022-03-21
 - [浏览器渲染机制](https://github.com/Twlig/issuesBlog/issues/60)--2022-03-21
@@ -103,6 +103,7 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 </details>
 
 ## 手撕代码
+- [实现LazyMan](https://github.com/Twlig/issuesBlog/issues/71)--2022-03-23
 - [实现sleep函数](https://github.com/Twlig/issuesBlog/issues/38)--2022-03-16
 - [防抖和节流](https://github.com/Twlig/issuesBlog/issues/37)--2022-03-15
 - [扁平化数组](https://github.com/Twlig/issuesBlog/issues/36)--2022-03-15
