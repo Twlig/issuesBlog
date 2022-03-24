@@ -366,7 +366,7 @@ Array数组是一组有序的数据，数组中每个槽位可以**存储任意�
 
 ---
 
-## split函数和join函数
+## split函数、join函数、substr函数
 
 ### split函数
 
@@ -406,4 +406,21 @@ var energy = fruits.join("&");
 energy = fruits.join();
 //'Banana,Orange,Apple,Mango'
 ```
+### substr函数
+
+在字符串中抽取从 start 下标开始的指定数目的字符。
+
+接收两个参数：
+
+- 参数一：要抽取的子串的起始下标。必须是数值。如果是负数，那么该参数声明从字符串的尾部开始算起的位置。也就是说，-1 指字符串中最后一个字符，-2 指倒数第二个字符，以此类推。
+- 参数二：可选，子串中的字符数。必须是数值。如果省略了该参数，那么返回从 *stringObject* 的开始位置到结尾的字串。
+
+返回：一个新的字符串，包含从 *stringObject* 的 *start*（包括 start 所指的字符） 处开始的 *length* 个字符。
+
+```javascript
+var str="Hello world!"
+console.log(str.substr(3))
+//lo world!
+```
+
 

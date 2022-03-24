@@ -102,7 +102,7 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 - [package和package-lock区别](https://github.com/Twlig/issuesBlog/issues/61)--2022-03-21
 </details>
 
-## 手撕代码
+## 前端面经
 - [实现LazyMan](https://github.com/Twlig/issuesBlog/issues/71)--2022-03-23
 - [实现sleep函数](https://github.com/Twlig/issuesBlog/issues/38)--2022-03-16
 - [防抖和节流](https://github.com/Twlig/issuesBlog/issues/37)--2022-03-15
