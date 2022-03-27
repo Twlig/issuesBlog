@@ -4,11 +4,11 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 | Name | Link | Desc | 
  | ---- | ---- | ---- |
 ## 最近更新
+- [观察者模式和发布订阅模式的实现](https://github.com/Twlig/issuesBlog/issues/76)--2022-03-27
 - [CDN](https://github.com/Twlig/issuesBlog/issues/75)--2022-03-27
 - [倒计时](https://github.com/Twlig/issuesBlog/issues/74)--2022-03-27
 - [为什么setTimeout()比setInterval()稳定](https://github.com/Twlig/issuesBlog/issues/73)--2022-03-24
 - [后端返回的64位大数，前端怎么处理精度丢失的问题](https://github.com/Twlig/issuesBlog/issues/72)--2022-03-24
-- [实现LazyMan](https://github.com/Twlig/issuesBlog/issues/71)--2022-03-23
 ## CSS
 - [Grid布局](https://github.com/Twlig/issuesBlog/issues/66)--2022-03-21
 - [浏览器渲染机制](https://github.com/Twlig/issuesBlog/issues/60)--2022-03-21
@@ -58,6 +58,7 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 </details>
 
 ## JavaScript进阶篇
+- [观察者模式和发布订阅模式的实现](https://github.com/Twlig/issuesBlog/issues/76)--2022-03-27
 - [事件循环](https://github.com/Twlig/issuesBlog/issues/51)--2022-03-17
 - [结合new + 执行上下文  解答箭头函数this指向问题](https://github.com/Twlig/issuesBlog/issues/50)--2022-03-17
 - [new到底做了什么？](https://github.com/Twlig/issuesBlog/issues/49)--2022-03-17
@@ -103,13 +104,14 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 </details>
 
 ## 前端面经
+- [观察者模式和发布订阅模式的实现](https://github.com/Twlig/issuesBlog/issues/76)--2022-03-27
 - [CDN](https://github.com/Twlig/issuesBlog/issues/75)--2022-03-27
 - [倒计时](https://github.com/Twlig/issuesBlog/issues/74)--2022-03-27
 - [为什么setTimeout()比setInterval()稳定](https://github.com/Twlig/issuesBlog/issues/73)--2022-03-24
 - [后端返回的64位大数，前端怎么处理精度丢失的问题](https://github.com/Twlig/issuesBlog/issues/72)--2022-03-24
-- [实现LazyMan](https://github.com/Twlig/issuesBlog/issues/71)--2022-03-23
 <details><summary>显示更多</summary>
 
+- [实现LazyMan](https://github.com/Twlig/issuesBlog/issues/71)--2022-03-23
 - [实现sleep函数](https://github.com/Twlig/issuesBlog/issues/38)--2022-03-16
 - [防抖和节流](https://github.com/Twlig/issuesBlog/issues/37)--2022-03-15
 - [扁平化数组](https://github.com/Twlig/issuesBlog/issues/36)--2022-03-15
