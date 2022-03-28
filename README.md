@@ -4,11 +4,11 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 | Name | Link | Desc | 
  | ---- | ---- | ---- |
 ## 最近更新
+- [HTTP headers 详解](https://github.com/Twlig/issuesBlog/issues/79)--2022-03-28
 - [== 和 ===的区别](https://github.com/Twlig/issuesBlog/issues/78)--2022-03-28
 - [运算符优先级](https://github.com/Twlig/issuesBlog/issues/77)--2022-03-27
 - [观察者模式和发布订阅模式的实现](https://github.com/Twlig/issuesBlog/issues/76)--2022-03-27
 - [CDN](https://github.com/Twlig/issuesBlog/issues/75)--2022-03-27
-- [倒计时](https://github.com/Twlig/issuesBlog/issues/74)--2022-03-27
 ## CSS
 - [Grid布局](https://github.com/Twlig/issuesBlog/issues/66)--2022-03-21
 - [浏览器渲染机制](https://github.com/Twlig/issuesBlog/issues/60)--2022-03-21
@@ -30,6 +30,7 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 - [Github Actions](https://github.com/Twlig/issuesBlog/issues/13)--2022-03-02
 - [使用GitHub Issues搭建blog](https://github.com/Twlig/issuesBlog/issues/2)--2021-11-13
 ## HTTP
+- [HTTP headers 详解](https://github.com/Twlig/issuesBlog/issues/79)--2022-03-28
 - [sessionStorage与localStorage](https://github.com/Twlig/issuesBlog/issues/24)--2022-03-08
 - [cookie、session与token](https://github.com/Twlig/issuesBlog/issues/23)--2022-03-08
 - [Ajax](https://github.com/Twlig/issuesBlog/issues/22)--2022-03-08
