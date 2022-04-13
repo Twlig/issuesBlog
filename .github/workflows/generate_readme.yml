@@ -47,6 +47,7 @@ jobs:
 
       - name: Generate new md # if you fork or clone this repo, please delete the curl line unless you know why
         run: |
+          git config --global --add safe.directory /github/workspace
           source venv/bin/activate
           python main.py ${{ secrets.G_T }} ${{ github.repository }} --issue_numbe '${{ github.event.issue.number }}'
         
