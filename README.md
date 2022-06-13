@@ -4,11 +4,11 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 | Name | Link | Desc | 
  | ---- | ---- | ---- |
 ## 最近更新
+- [活动变量销毁](https://github.com/Twlig/issuesBlog/issues/102)--2022-06-13
 - [合并有序数组，不使用新数组](https://github.com/Twlig/issuesBlog/issues/101)--2022-05-12
 - [求小于目标值的最大值](https://github.com/Twlig/issuesBlog/issues/100)--2022-05-11
 - [css3动画与js动画谁更优？](https://github.com/Twlig/issuesBlog/issues/99)--2022-04-21
 - [并发处理异步请求](https://github.com/Twlig/issuesBlog/issues/98)--2022-04-19
-- [手写render函数](https://github.com/Twlig/issuesBlog/issues/97)--2022-04-15
 ## CSS
 - [实现垂直水平居中](https://github.com/Twlig/issuesBlog/issues/81)--2022-03-29
 - [Grid布局](https://github.com/Twlig/issuesBlog/issues/66)--2022-03-21
@@ -127,6 +127,8 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 - [package和package-lock区别](https://github.com/Twlig/issuesBlog/issues/61)--2022-03-21
 </details>
 
+## 刷题采坑
+- [活动变量销毁](https://github.com/Twlig/issuesBlog/issues/102)--2022-06-13
 ## 前端面经
 - [合并有序数组，不使用新数组](https://github.com/Twlig/issuesBlog/issues/101)--2022-05-12
 - [求小于目标值的最大值](https://github.com/Twlig/issuesBlog/issues/100)--2022-05-11
